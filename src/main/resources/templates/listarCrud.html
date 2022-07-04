@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Listar Usuários</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Listar Usuários</h1>
+    <table>
+		<tr>
+			<th>ID</th>
+			<th>Nome</th>
+			<th>Email</th>
+		</tr>
+		<tr th:each="f : ${crud}">
+			<td th:text="${u.id}"></td>
+			<td th:text="${u.nome}"></td>
+			<td th:text="${u.email}"></td>			
+		<td>
+			<a th:href="@{/crud/update/{id} (id=${p.id})}">Editar</a>
+			<a th:href="@{/crud/delete/{id} (id=${p.id})}">Excluir</a>
+		</td>
+		</tr>
+	</table>
+	<a href="/crud/all">Cadastrar outro usuário</a>	
+</body>
+</html>

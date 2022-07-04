@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Funcionarios</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Email</th>
+        </tr>
+
+        <tr th:each="func : ${users}">
+            <td><span th:text="${func.id}"></span></td>
+            <td><span th:text="${func.nome}"></span></td>
+            <td><span th:text="${func.email}"></td>
+            <a th:href="@{delete/{id}(id=${func.id})}" th:method="delete"> Excluir</a>
+        </tr>
+    </table>
+    <a href="/form"><button>Adicionar funcionario</button></a>
+</body>
+
+</html>
